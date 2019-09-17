@@ -21,7 +21,7 @@ public class PaintCost {
 		double doorWidthInch;
 		int numberOfWindows;
 		int numberoFDoors;
-		double cost;
+		double cost2;
 	}
 
 }
