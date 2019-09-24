@@ -31,9 +31,11 @@ public class PaintCost {
 		double totalDoorWidth;
 		int numberOfWindows;
 		int numberOfDoors;
+		double totalSqFt;
 		double cost;
+		double totalCost;
 		
-		DecimalFormat df = new DecimalFormat("0.0");
+		DecimalFormat df = new DecimalFormat("0.00");
 		// Rounds decimal figures to 1 decimal place
 		
 		Scanner in = new Scanner(System.in);
@@ -45,7 +47,7 @@ public class PaintCost {
 		System.out.print("How many remainder of inches? ");
 		houseLengthInch = in.nextInt();
 		System.out.println(houseLengthInch + " Inches");
-		totalHouseLength = (houseLengthFeet/1.0 + houseLengthInch/12.0);
+		totalHouseLength = (houseLengthFeet + (double)houseLengthInch/12);
 		System.out.println(df.format(totalHouseLength) + " Total Length in feet");
 		// Asks for and stores length of house
 		
@@ -55,7 +57,7 @@ public class PaintCost {
 		System.out.print("How many remainder of inches? ");
 		houseWidthInch = in.nextInt();
 		System.out.println(houseWidthInch + " Inches");
-		totalHouseWidth = (houseWidthFeet/1.0 + houseWidthInch/12.0);
+		totalHouseWidth = (houseWidthFeet + (double)houseWidthInch/12);
 		System.out.println(df.format(totalHouseWidth) + " Total width in feet");
 		//Asks for and stores width of house
 		
@@ -65,7 +67,7 @@ public class PaintCost {
 		System.out.print("How many remainder of inches? ");
 		houseHeightInch = in.nextInt();
 		System.out.println(houseHeightInch + " Inches");
-		totalHouseHeight = (houseHeightFeet/1.0 + houseHeightInch/12.0);
+		totalHouseHeight = (houseHeightFeet + (double)houseHeightInch/12);
 		System.out.println(df.format(totalHouseHeight) + " Total height in Feet");
 		//Asks for and stores height of house
 		
@@ -80,7 +82,7 @@ public class PaintCost {
 		System.out.print("How many remainder of inches? ");
 		windowLengthInch = in.nextInt();
 		System.out.println(windowLengthInch + " Inches");
-		totalWindowLength = (windowLengthFeet/1.0 + windowLengthInch/12.0);
+		totalWindowLength = (windowLengthFeet + (double)windowLengthInch/12);
 		System.out.println(df.format(totalWindowLength) + " Total length in feet");
 		//Asks for and stores length of a window
 		
@@ -90,7 +92,7 @@ public class PaintCost {
 		System.out.print("How many remainder of inches? ");
 		windowWidthInch = in.nextInt();
 		System.out.println(windowWidthInch + " Inches");
-		totalWindowWidth = (windowWidthFeet/1.0 + windowWidthInch/12.0);
+		totalWindowWidth = (windowWidthFeet + (double)windowWidthInch/12);
 		System.out.println(df.format(totalWindowWidth) + " Total length in feet");
 		//Asks for and stores width of a window
 		
@@ -105,7 +107,7 @@ public class PaintCost {
 		System.out.print("How many remainder of inches? ");
 		doorLengthInch = in.nextInt();
 		System.out.println(doorLengthInch + " Inches");
-		totalDoorLength = (doorLengthFeet/1.0 + doorLengthInch/12.0);
+		totalDoorLength = (doorLengthFeet + (double)doorLengthInch/12);
 		System.out.println(df.format(totalDoorLength) + " Total length in feet");
 		//Asks for and stores length of a door
 		
@@ -115,9 +117,23 @@ public class PaintCost {
 		System.out.print("How many remainder of inches? ");
 		doorWidthInch = in.nextInt();
 		System.out.println(doorWidthInch + " Inches");
-		totalDoorWidth = (doorWidthFeet/1.0 + doorWidthInch/12.0);
+		totalDoorWidth = (doorWidthFeet + (double)doorWidthInch/12);
 		System.out.println(df.format(totalDoorWidth) + " Total length in feet");
 		//Asks for and stores length of a door
+		
+		System.out.print("What is the cost of the paint job per square foot? ");
+		cost = in.nextInt();
+		System.out.println("$" + cost + " per square foot for the paint job.");
+		//Asks for and stores the cost of the paint job.
+		
+		totalSqFt = 4*( totalHouseLength * totalHouseWidth) + ((totalHouseHeight-totalHouseWidth) * totalHouseLength) 
+				- ((numberOfWindows)*(totalWindowLength * totalWindowWidth) + ((numberOfDoors) * (totalDoorLength * totalDoorWidth)));
+		//Calculates the square foot of the area which will be painted
+		
+		totalCost = cost * totalSqFt;
+		// Calculates total cost of paint job
+		System.out.println();
+		System.out.println("The total cost of the paint job will be $" + totalCost + " for the " + totalSqFt + " that will to be painted.");
 	}
 	
 
