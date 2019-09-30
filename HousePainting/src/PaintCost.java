@@ -36,7 +36,7 @@ public class PaintCost {
 		double totalCost;
 		
 		DecimalFormat df = new DecimalFormat("0.00");
-		// Rounds decimal figures to 1 decimal place
+		// Rounds decimal figures to 2 decimal place
 		
 		Scanner in = new Scanner(System.in);
 		// Creates scanner variable to store user input
@@ -123,7 +123,7 @@ public class PaintCost {
 		
 		System.out.print("What is the cost of the paint job per square foot? ");
 		cost = in.nextInt();
-		System.out.println("$" + cost + " per square foot for the paint job.");
+		System.out.println("$" + df.format(cost) + " per square foot for the paint job.");
 		//Asks for and stores the cost of the paint job.
 		
 		totalSqFt = 4*( totalHouseLength * totalHouseWidth) + ((totalHouseHeight-totalHouseWidth) * totalHouseLength) 
@@ -133,7 +133,7 @@ public class PaintCost {
 		totalCost = cost * totalSqFt;
 		// Calculates total cost of paint job
 		System.out.println();
-		System.out.println("The total cost of the paint job will be $" + totalCost + " for the " + totalSqFt + " that will to be painted.");
+		System.out.println("The total cost of the paint job will be $" + df.format(totalCost) + " for the " + totalSqFt + " that will to be painted.");
 	}
 	
 
