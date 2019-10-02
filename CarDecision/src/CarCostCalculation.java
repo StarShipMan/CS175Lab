@@ -58,7 +58,7 @@ public class CarCostCalculation {
 		System.out.println();
 		System.out.print("What is the cost of gas per gallon? ");
 		costPerGallon = in.nextFloat();
-		System.out.println("The cost of a gallon of gas is " + df.format(costPerGallon));
+		System.out.println("The cost of a gallon of gas is $" + df.format(costPerGallon));
 		//Asks for and stores the cost of gas as a variable
 		
 		System.out.println();
