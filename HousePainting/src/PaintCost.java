@@ -7,7 +7,7 @@ public class PaintCost {
 		/*
 		 * This program will calculate the cost of painting a house
 		 */
-		// Needed Variables
+		//Variables
 		int houseLengthFeet;
 		int houseLengthInch;
 		double totalHouseLength;
