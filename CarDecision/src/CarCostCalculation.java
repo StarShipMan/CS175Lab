@@ -20,7 +20,9 @@ public class CarCostCalculation {
 		byte yearsDriven;
 		int counter;
 		float yearlyCostRegularCar;
-		float costRegularCarSubsequent;
+		float yearlyCostHybridCar;
+		float totalCostAfterYearsDrivenRegularCar;
+		float totalCostAfterYearsDrivenHybridCar;
 		
 		DecimalFormat df = new DecimalFormat("0.00");
 		// Rounds decimal figures to 2 decimal place
@@ -67,17 +69,50 @@ public class CarCostCalculation {
 		
 		
 		yearlyCostRegularCar = drivenMilesPerYear / milesPerGallonRegularCar * costPerGallon ;
+		yearlyCostHybridCar = drivenMilesPerYear / milesPerGallonHybridCar * costPerGallon;
 		System.out.println();
 		System.out.println("The cost of gas for each year for the regular car is $" + df.format(yearlyCostRegularCar));
+		System.out.println("The cost of gas for each year for the hybrid car is $" + df.format(yearlyCostHybridCar));
 		//Calculates the cost of gas for  the regular car per year
 		
 		counter = 0;
-		while (counter < yearsDriven-1);
-			System.out.println("Cost to own the regular car after " + (counter + 1) + " year is $" + (costRegularCar + (counter + 1)*yearlyCostRegularCar));
-			counter = counter + 1;
-			
-			
+		System.out.println();
+		while (counter < yearsDriven) {
+			if ((counter) + 1 == 1) {
+				System.out.println("Cost to own the regular car after " + (counter + 1) + " year is $" + df.format((costRegularCar + (counter + 1)*yearlyCostRegularCar)) + ".");
+				System.out.println("Cost to own the hybrid car after " + (counter + 1) + " year is $" + df.format((costHybridCar + (counter + 1)*yearlyCostHybridCar)) + ".");
+				counter = counter + 1;}
+			else {
+				System.out.println();
+				System.out.println("Cost to own the regular car after " + (counter + 1) + " years is $" + df.format((costRegularCar + (counter + 1)*yearlyCostRegularCar)) + ".");
+				System.out.println("Cost to own the hybrid car after " + (counter + 1) + " years is $" + df.format((costHybridCar + (counter + 1)*yearlyCostHybridCar)) + ".");
+				counter = counter + 1;}
+		}
 		
+		totalCostAfterYearsDrivenRegularCar = costRegularCar + yearsDriven * yearlyCostRegularCar;
+		totalCostAfterYearsDrivenHybridCar = costHybridCar + yearsDriven * yearlyCostHybridCar;
+		if (yearsDriven == 1) {
+			
+			if (totalCostAfterYearsDrivenRegularCar<totalCostAfterYearsDrivenHybridCar) {
+				System.out.println("The regular car costs less after " + yearsDriven + " year.");
+			}
+			else if (totalCostAfterYearsDrivenRegularCar==totalCostAfterYearsDrivenHybridCar) {
+				System.out.println("Both cars cost the same after " + yearsDriven + " year.");
+			}
+			else  {
+				System.out.println("The hybrid car costs less after " + yearsDriven + " year.");
+			}
+		}
+		else {
+			if (totalCostAfterYearsDrivenRegularCar<totalCostAfterYearsDrivenHybridCar) {
+				System.out.println("The regular car costs less after " + yearsDriven + " years.");
+			}
+			else if (totalCostAfterYearsDrivenRegularCar==totalCostAfterYearsDrivenHybridCar) {
+				System.out.println("Both cars cost the same after " + yearsDriven + " years.");
+			}
+			else  {
+				System.out.println("The hybrid car costs less after " + yearsDriven + " years.");
+			}
+		}
 	}
-
 }
