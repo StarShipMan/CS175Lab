@@ -24,6 +24,32 @@ public class CarCostCalculation {
 		float totalCostAfterYearsDrivenRegularCar;
 		float totalCostAfterYearsDrivenHybridCar;
 		
+		//This is the Stickers to obtain new Variables
+		String stickerHybrid = "Make:Toyota,Model:Prius,Cost:31000,MPG:30";
+		String stickerRegular= "Make:Toyota,Model:Corolla,Cost:28000,MPG:20";
+		String [] hybrid = stickerHybrid.split(",");
+		//Hybrid Variables
+		String [] makeHybridSplit = hybrid[0].split(":");
+		String makeHybrid = makeHybridSplit[1];
+		String [] modelHybridSplit = hybrid[1].split(":");
+		String modelHybrid = modelHybridSplit[1];
+		String [] costHybridSplit = hybrid[2].split(":");
+		String costHybrid = costHybridSplit[1];
+		String [] milesPerGallonHybridSplit = hybrid[3].split(":");
+		String milesPerGallonHybrid = milesPerGallonHybridSplit[1];
+		System.out.println(makeHybrid + modelHybrid + costHybrid + milesPerGallonHybrid);
+		//Regular Variables
+		String [] regular = stickerRegular.split(",");
+		String [] makeRegularSplit = regular[0].split(":");
+		String makeRegular = makeRegularSplit[1];
+		String [] modelRegularSplit = regular[1].split(":");
+		String modelRegular = modelRegularSplit[1];
+		String [] costRegularSplit = regular[2].split(":");
+		String costRegular = costRegularSplit[1];
+		String [] milesPerGallonRegularSplit = regular[3].split(":");
+		String milesPerGallonRegular = milesPerGallonRegularSplit[1];
+		System.out.println(makeRegular + modelRegular + costRegular + milesPerGallonRegular);
+				
 		DecimalFormat df = new DecimalFormat("0.00");
 		// Rounds decimal figures to 2 decimal place
 		
