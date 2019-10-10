@@ -13,7 +13,6 @@ public class CarDecision {
 			moreStuff = stuff[i].split(":");
 			System.out.println(moreStuff [1]);
 			int n = 0;
-		}
-	    System.out.println(moreStuff[0]);
+	    }
 	}
 }
