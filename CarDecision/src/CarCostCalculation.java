@@ -13,7 +13,7 @@ public class CarCostCalculation {
 		// Needed Variables
 		float costRegularCar;
 		float costHybridCar;
-		byte milesPerGallonRegularCar;
+		byte milesPerGallonRegularCa;
 		byte milesPerGallonHybridCar;
 		int drivenMilesPerYear;
 		float costPerGallon;
