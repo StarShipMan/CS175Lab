@@ -8,7 +8,7 @@ public class GroceryDiscountVersion2 {
 		Scanner in = new Scanner(System.in);
 		DecimalFormat df = new DecimalFormat("0.00");
 		double discount;
-			System.out.println("Enter grocery amount, any other response to end");
+			System.out.println("Enter grocery amount, any other response to end.");
 			while (in.hasNextDouble())
 			{
 				double costGroceries = in.nextDouble();
