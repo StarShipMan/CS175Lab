@@ -35,6 +35,6 @@ public class E53 {
 			else if (x>=1000000000 && x <10000000000L)
 				digits = 10;
 		System.out.print("There are " + digits + " many digits in the integer " + x + ".");
-	}
+	}//main
 
-}
+}// E53 class

@@ -22,6 +22,7 @@ public class E55 {
 		else
 			incDecNeither = "neither increasing or decreasing";
 		System.out.println("The numbers are " + incDecNeither);
-	}
-
-}
+		
+	}//main
+	
+}//E55 class

@@ -21,6 +21,7 @@ public class E57 {
 		else 
 			order = " are not in order.";
 		System.out.println("The numbers " + a + ", " + b + ", and " + c + order);
-	}
+		
+	}//main
 
-}
+}//E57 class

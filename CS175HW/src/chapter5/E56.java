@@ -35,8 +35,8 @@ public class E56 {
 			else
 				incDecNeither = "neither increasing or decreasing";
 		System.out.println("The numbers are " + incDecNeither);
-	}
+	}//main
 
-}
+}//E56 class
 
 

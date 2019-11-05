@@ -20,6 +20,7 @@ public class E58 {
 		if  ((a==b && c==d) || (a==c && b==d) || (a==d && b==c))
 			pairs = " are two pairs.";
 		System.out.print("The numbers " + a + ", " + b + ", " + c + ", and " + d + pairs);
-	}
+		
+	}//main
 
-}
+}//E58 class
