@@ -12,12 +12,15 @@ public class CodeGradeTranslatorVersion2 {
 		int counter = 0;
 		String course = "";
 		String letterGrade= "";
-		String creditHours = "";
+		int creditHours = 0;
 		double gradePointAverage = 0;
 		int gradePoint = 0;
+		int totalCreditHours = 0;
+		double totalGradePoints = 0;
 		ArrayList<String> courseInfoArray= new ArrayList <String>();
+		ArrayList<String> courseInfoArraySplit = new ArrayList<String>();
 		String courseInfo= "";
-		System.out.println("Enter course information or Q to quit the program:" );
+		System.out.println("Enter course information or 'End' to quit the program:" );
 	
 		
 		while (isRunning == true) {
@@ -27,7 +30,8 @@ public class CodeGradeTranslatorVersion2 {
 			if (course.equals("End"))
 				break;
 			System.out.println("Enter credit hours of course:");
-			creditHours = sc.next();
+			creditHours = sc.nextInt();
+			totalCreditHours = totalCreditHours + creditHours;
 			//System.out.println("credit hours of course is " + creditHours + ".");
 			System.out.println("Enter letter grade:");
 			letterGrade = sc.next();
@@ -75,18 +79,37 @@ public class CodeGradeTranslatorVersion2 {
 				gradePointAverage = .7;
 				//System.out.println("The grade point average is " + gradePointAverage + ".");
 			}//if D-
-			else if (letterGrade.equals("F")) {
+			else if ((letterGrade.equals("F")) ||(letterGrade.contentEquals("W"))) {
 				gradePointAverage = 0;
 				//System.out.println("The grade point average is " + gradePointAverage + ".");
 			}//if F
 			else 
-				System.out.println("Please enter valid input. Example: A+");
-			courseInfo = course + "," + creditHours + "," + gradePointAverage;
+				System.out.println("Please enter valid input. Example: A+"); 
+			totalGradePoints = totalGradePoints + gradePointAverage;
+			courseInfo = course + "," + creditHours + "," + letterGrade + ", " + gradePointAverage;
 			courseInfoArray.add(courseInfo);
 			
 		}//while
-			System.out.println(courseInfoArray);
-
+		System.out.println("Course : Credit Hours  : Grade :  Grade Points");
+		String index = "";
+		String [] indexSplit;
+		String stringGradePointAverage = "";
+		String stringCreditHours;
+		while (counter < courseInfoArray.size()) {
+			 index =  courseInfoArray.get(counter);
+			 indexSplit = index.split(",");
+			 //System.out.println(index);
+			 course = indexSplit[0];
+			 stringCreditHours = indexSplit[1];
+			 letterGrade = indexSplit[2];
+			 stringGradePointAverage = indexSplit[3];
+			 System.out.println(course + ":" + stringCreditHours + ":" + letterGrade + ":" + stringGradePointAverage );
+			 counter++;
+		}//while
+		System.out.println(totalCreditHours + " Total Credit Hours Attempted. " + totalGradePoints + " Total Grade Points");
+		System.out.println();
+		System.out.println("GPA = "+ totalGradePoints + "/" + totalCreditHours + " = " + (totalGradePoints/totalCreditHours));
+		
 	}//main
 }//class
 		
