@@ -5,6 +5,7 @@ public class CardGameVersion2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		int [] initialDraw = new int[10];
 		int [] myHand = new int[5]; 
 		int [] yourHand = new int[5];
 		int lowest = 0;
@@ -36,40 +37,23 @@ public class CardGameVersion2 {
 		for (int i = 0; i < 5; i++)
 		{
 			card = 1 + generator.nextInt(52);
-			myHand[i] = card;			
-		}//for
-		for (int x = 0; x < myHand.length; x++){
-			for(int y= x; y < myHand.length; y++) {
-				if (myHand[x]  > myHand[y]) {
-					lowest = myHand[x];
-					myHand[x] = myHand[y];
-					myHand[y] = lowest;
-					
-				}//if
-				
-			}//for
+			initialDraw [i] = card;			
 		}//for
 		while (noDuplicatesCheck == false) {
-			for (int x = 1; x < myHand.length; x++) {
-				if (myHand[x-1] == myHand[x])
-					myHand[x-1] =  1 + generator.nextInt(52); 
-				else
-					noDuplicatesCheck = true;
+			for (int x = 0; x < initialDraw .length; x++) {
+				for (int y = 0; y < initialDraw.length; y++) {
+					if (initialDraw [x] == initialDraw [y]) {
+						initialDraw [x] =  1 + generator.nextInt(52);
+						
+					}
+					else 
+						noDuplicatesCheck=true; 
 			}//for
 		}//while
+		}
 		noDuplicatesCheck = false;
-		for (int x = 0; x < myHand.length; x++){
-			for(int y= x; y < myHand.length; y++) {
-				if (myHand[x]  > myHand[y]) {
-					lowest = myHand[x];
-					myHand[x] = myHand[y];
-					myHand[y] = lowest;
-					
-				}//if
 				
-			}//for
-		}//for
-		stringMyHand = Arrays.toString(myHand);
+		stringMyHand = Arrays.toString(initialDraw );
 		System.out.print(stringMyHand);	
 		System.out.println();
 		System.out.print("My suit is ");
