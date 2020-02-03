@@ -134,6 +134,7 @@ public class PaintCost {
 		// Calculates total cost of paint job
 		System.out.println();
 		System.out.println("The total cost of the paint job will be $" + df.format(totalCost) + " for the " + totalSqFt + " that will to be painted.");
+		in.close();
 	}
 	
 
